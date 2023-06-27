@@ -1,9 +1,10 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const genertateShape = require('./lib/shapes')
 
 
 const questions = [
-     {
+    {
         // Select 3 characters for logo
         type: "input",
         name: 'text',
@@ -35,11 +36,11 @@ function init() {
         .then(
             (answers) => {
                 console.log(answers)
-                const   README = generateSVG(answers);
-                // Create README.md file
+                const README = generateSVG(answers);
+                // Create logo.svg file based on user's parameters
                 fs.writeFile('logo.svg', svg, (err) =>
-                err ? console.log(err) : console.log('Successfully created logo.svg!')
-              );
+                    err ? console.log(err) : console.log('Successfully created logo.svg!')
+                );
             }
         )
 }
