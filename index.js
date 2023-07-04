@@ -1,6 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const genertateShape = require('./lib/shapes')
+const generateShape = require('./lib/shapes')
 
 
 const questions = [
@@ -36,7 +36,7 @@ function init() {
         .then(
             (answers) => {
                 console.log(answers)
-                const README = generateSVG(answers);
+                const svg = generateShape(answers);
                 // Create logo.svg file based on user's parameters
                 fs.writeFile('logo.svg', svg, (err) =>
                     err ? console.log(err) : console.log('Successfully created logo.svg!')
